@@ -1,10 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NextSeo } from 'next-seo';
+import { NEXT_SEO_DEFAULT } from '../../seo.config';
+
+export async function generateMetadata(props, parent) {
+    return {
+        cannonical: 'https://adityasawant.vercel.app',
+        robotsProps:{
+            nosnippet: false,
+            notranslate: true,
+            noimageindex: true,
+            noarchive: true,
+            maxSnippet: -1,
+            maxImagePreview: 'none',
+            maxVideoPreview: -1,
+        },
+        openGraph: {
+            url: 'https://adityasawant.vercel.app',
+            title: 'Aditya Sawant',
+            description: 'Aditya Sawant\'s Portfolio',
+            images: [
+                {url: 'https://adityasawant.vercel.app/logo-circle.webp', width: 2160, height: 2160, alt: 'Logo'},
+                {url: 'https://adityasawant.vercel.app/logo-square.webp', width: 400, height: 400, alt: 'Logo'},
+                {url: 'https://adityasawant.vercel.app/logo-circle.png', width: 2160, height: 2160, alt: 'Logo'},
+                {url: 'https://adityasawant.vercel.app/logo-square.png', width: 400, height: 400, alt: 'Logo'},
+            ]
+        },
+        twitter: {
+            handle: '@adzzhere',
+            site: '@adzzhere',
+            cardType: 'summary_large_image',
+        }
+    }
+}
 
 export default function Home() {
     return (
         <>
-
+           
             <header className="mx-auto mb-[120px] flex text-[#797673] max-w-[608px] justify-between">
                 <div className="block leading-[24px]  box-border font-[500]">
                     <Link href={'/'}><h1 className="text-highlight">Aditya Sawant</h1></Link>
@@ -14,6 +47,7 @@ export default function Home() {
                 </div>
             </header>
             <main>
+                {/* About */}
                 <section className="mb-[60px] font-blanco font-[500]">
                     <h2 className="text-highlight mx-auto max-w-[608px] my-6" >About</h2>
                     {/* <p className="text-def mx-auto max-w-[608px] mt-[18px] leading-[27px] font-[400] text-[18px]" >I’m a designer with 20 years of experience in brand, product design, and creative direction. I have an international reputation for creating warm, smart, and effective design for a variety of companies in technology and publishing. Among these is <Link href={'/#'} className="decoration-[#797673] underline italic" >Abstract</Link>  (acq. Adobe), which I co-founded in 2014. I’m head of brand at Modern Treasury.
@@ -28,8 +62,7 @@ export default function Home() {
                     </p>
 
                 </section>
-
-
+            
                 {/* Contacts */}
                 <section className="mb-[60px] font-blanco font-[500]">
                     <h2 className="text-highlight mx-auto max-w-[608px] my-6" >Contact</h2>
@@ -64,7 +97,7 @@ export default function Home() {
                             <Link href={'https://www.sakec.ac.in/csi-sakec/mastering-the-web/'} target="_blank" className="decoration-[#797673] underline text-highlight" >Mastering the Web</Link>
                             <small>SAKEC, Mumbai</small>
                             <p className="text-def mx-auto max-w-[608px] mt-[18px] leading-[27px] font-[400] text-[18px]">
-                                In the event I taught HTML, CSS, JavaScript, Node.js, and Database connectivity for web app development, promoting hands-on learning and motivating junior students to refine skills. Attendees presented Mini Projects utilizing web technologies.
+                                In this event I taught HTML, CSS, JavaScript, Node.js, and Database connectivity for web app development, promoting hands-on learning and motivating junior students to refine skills. Attendees presented Mini Projects utilizing web technologies.
                             </p>
                         </div>
                     </div>
@@ -90,7 +123,7 @@ export default function Home() {
                             <h1 className="text-highlight my-0">
                                 S3A-Net: Spatial-Spectral Self-Attention Network for Few-Shot Learning-Based Hyperspectral Image Classification
                             </h1>
-                            <small>Description of the project Or explain in 1 line.</small>
+                            <small>Fourth Year Engineering Major Project</small>
                             <p className="text-def mx-auto max-w-[608px] mt-[18px] leading-[27px] font-[400] text-[18px]">
                                 This research paper, conducted under the guidance of Dr. Manimala Mahato from SAKEC and Prof. Biplab Banerjee from IIT Bombay, proposes the S3A-Net, a novel Spatial-Spectral Self-Attention Network, for few-shot learning-based hyperspectral image classification. The S3A-Net leverages self-attention mechanisms to effectively capture spatial and spectral features, enhancing the discriminative capabilities of the classification model. By integrating few-shot learning techniques, the proposed framework enables accurate classification even with limited labeled training samples, addressing the challenges posed by the scarcity of labeled hyperspectral data. Experimental results demonstrate the superiority of the S3A-Net over existing methods in terms of classification accuracy and robustness, highlighting its potential for various remote sensing applications.
                             </p>
@@ -103,7 +136,7 @@ export default function Home() {
                             <h1 className="text-highlight my-0">
                                 Plan It
                             </h1>
-                            <small>Third Year Engineering Project</small>
+                            <small>Third Year Engineering Minor Project</small>
                             <p className="text-def mx-auto max-w-[608px] mt-[18px] leading-[27px] font-[400] text-[18px]">
                                 &quot;Plan-It&quot; addresses the complexities of task management by providing a comprehensive solution enriched with Natural Language Processing (NLP) integration. It simplifies personal and team-level task organization through intuitive interfaces, seamless collaboration features, and NLP-driven smart task suggestions. Challenges arose during NLP implementation, particularly in accurately interpreting user inputs for task creation. However, through meticulous research, framework selection, training, testing, and iterative improvement, these hurdles were overcome. The result is a robust task management system that empowers users to achieve their goals effectively while ensuring data security and privacy.
                             </p>
@@ -115,7 +148,7 @@ export default function Home() {
                             <h1 className="text-highlight my-0">
                                 Project Gallery
                             </h1>
-                            <small>Second Year Engineering Project</small>
+                            <small>Second Year Engineering Minor Project</small>
                             <p className="text-def mx-auto max-w-[608px] mt-[18px] leading-[27px] font-[400] text-[18px]">
                                 &quot;Project Gallery&quot; serves as a pivotal platform for SAKEC students to exhibit their diverse range of projects, spanning from software applications to research endeavors. It simplifies project discovery for students and professors, streamlining access to relevant initiatives and fostering collaboration. Despite challenges in integrating third-party image hosting services and managing sessions securely, thorough research, iterative improvements, and rigorous testing ensured successful project implementation. Ultimately, &quot;Project Gallery&quot; enhances the educational experience by facilitating innovation, collaboration, and cross-disciplinary knowledge sharing within the SAKEC community.
                             </p>

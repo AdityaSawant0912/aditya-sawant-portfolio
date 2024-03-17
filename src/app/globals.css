@@ -43,7 +43,9 @@ body {
   margin-top: 7vh;
   margin-bottom: 2%;
 }
-
+::-webkit-scrollbar {
+    width: 0;
+}
 html {
   font-size: var(--font-std);
   font-family: var(--font-sans);
